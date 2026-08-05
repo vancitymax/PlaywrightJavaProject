@@ -16,27 +16,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      - name: Set up JDK 17 & Cache Maven
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-
-      - name: Cache Maven dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven
-
-      - name: Setup Maven
-        uses: s4u/setup-maven-action@v1.14.0
-        with:
-          java-version: '17'
-          java-distribution: 'temurin'
-          maven-version: '3.9.9'
-          cache-enabled: false
+          cache: 'maven'
 
       - name: Install Playwright Browsers & Dependencies
         run: |
