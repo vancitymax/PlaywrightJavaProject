@@ -43,7 +43,7 @@ public abstract class PlaywrightTestCase {
     @AfterEach
     void closeContext() {
         browserContext.close();
-        takeScreenshot("End of test");
+        //takeScreenshot("End of test");
     }
 
     @AfterAll
