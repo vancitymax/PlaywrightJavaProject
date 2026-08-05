@@ -1,4 +1,4 @@
-name: Playwright Test
+name: Playwright Test Run
 
 on:
   push:
